@@ -1,0 +1,34 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int k = sc.nextInt(); // input number
+
+        if (k == 1) {
+            System.out.println("Kaprekar Number");
+            return;
+        }
+
+        long square = (long) k * k;
+        String strSquare = String.valueOf(square);
+        int len = strSquare.length();
+
+       
+        for (int i = 1; i < len; i++) {
+            String leftPart = strSquare.substring(0, i);
+            String rightPart = strSquare.substring(i);
+
+            int left = Integer.parseInt(leftPart);
+            int right = Integer.parseInt(rightPart);
+
+            if (right == 0) continue; 
+            if (left + right == k) {
+                System.out.println("Kaprekar Number");
+                return;
+            }
+        }
+
+        System.out.println("Not a Kaprekar Number");
+    }
+}
