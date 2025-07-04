@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class RowWithMaxZeros {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+    
+        int n = sc.nextInt();
+        int[][] matrix = new int[n][n];
+
+       
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+
+        int maxZeroRow = -1;
+        int maxZeroCount = 0;
+
+        
+        for (int i = 0; i < n; i++) {
+            int zeroCount = 0;
+            for (int j = 0; j < n; j++) {
+                if (matrix[i][j] == 0) {
+                    zeroCount++;
+                }
+            }
+            if (zeroCount > maxZeroCount) {
+                maxZeroCount = zeroCount;
+                maxZeroRow = i;
+            }
+        }
+
+        if (maxZeroCount == 0) {
+            System.out.println("No row has zeros");
+        } else {
+            System.out.println(maxZeroRow);
+        }
+    }
+}
