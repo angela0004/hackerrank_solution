@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        double principal = sc.nextDouble();
+        double rate = sc.nextDouble();
+        double time = sc.nextDouble();
+        
+        double interest = (principal * rate * time) / 100.0;
+        double amount = principal + interest;
+        double discount = (2 * interest) / 100.0;
+        double finalAmount = amount - discount;
+        
+        System.out.printf("%.2f\n%.2f\n%.2f\n%.2f\n", interest, amount, discount, finalAmount);
+    }
+}
